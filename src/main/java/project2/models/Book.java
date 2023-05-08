@@ -1,21 +1,45 @@
-package project1.modules;
+package project2.models;
 
-import jakarta.validation.constraints.Min;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.util.Date;
+
+
+@Entity
+@Table(name="Book")
 public class Book {
+
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "Book title should now be empty")
+    @NotEmpty(message = "Book title should not be empty")
     @Size(min = 2, max = 100, message = "Book title should contain between 2 and 100 characters")
+    @Column(name = "title")
     private String title;
 
     @NotEmpty(message = "Author name should not be empty")
     @Size(min = 2, max = 100, message = "Author name should contain between 2 and 100 characters")
+    @Column(name="author")
     private String author;
 
+    @Column(name = "year")
     private int year;
+
+    @ManyToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person owner;
+
+    @Column(name = "taken_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date takenAt;
+
+    @Transient
+    boolean expired;
+
 
     public Book() {
 
@@ -57,5 +81,29 @@ public class Book {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public Person getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Person owner) {
+        this.owner = owner;
+    }
+
+    public Date getTakenAt() {
+        return takenAt;
+    }
+
+    public void setTakenAt(Date takenAt) {
+        this.takenAt = takenAt;
+    }
+
+    public boolean isExpired() {
+        return expired;
+    }
+
+    public void setExpired(boolean expired) {
+        this.expired = expired;
     }
 }

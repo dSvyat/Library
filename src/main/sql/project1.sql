@@ -10,4 +10,5 @@ CREATE TABLE Book (
                       author varchar(100) NOT NULL,
                       year int NOT NULL,
                       person_id int REFERENCES Person(id) ON DELETE SET NULL
+                      taken_at TIMESTAMP
 );

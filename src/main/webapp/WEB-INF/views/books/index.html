@@ -12,8 +12,49 @@
 </div>
 
 <br/>
+
+<!--<div th:if="${#strings.toString(param.sort_by_year)} == 'true'">
+<form th:href="@{/books(sort_by_year='false')}">
+    <input type="submit" value="Unsort"/>
+</form>
+</div>
+<div th:if="${#strings.toString(param.sort_by_year)} == 'false'">
+    <form th:href="@{/books(sort_by_year='true')}">
+        <input type="submit" value="Sort"/>
+    </form>
+</div> -->
+
+<div th:if="${#strings.toString(param.sort_by_year)} == 'true'">
+    <a href="/books?sort_by_year=false">Unsort</a>
+</div>
+<div th:if="${#strings.toString(param.sort_by_year)} == 'false'">
+    <a href="/books?sort_by_year=true">Sort</a>
+</div>
+<br>
+
+<form action="?page_to_go" method="get">
+    <label for="amount">Select amount of books per page</label>
+    <select name="books_per_page" id="amount">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    </select>
+    <input type="submit" value="Enter"/>
+</form>
+
 <hr/>
 
+
+
+<a href="/books/search">Search book</a>
+<br>
 <a href="/books/new">Create</a>
 <br>
 <a href="/people">People</a>

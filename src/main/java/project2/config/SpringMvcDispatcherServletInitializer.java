@@ -1,4 +1,4 @@
-package project1.config;
+package project2.config;
 
 import jakarta.servlet.ServletContext;
 import org.springframework.web.filter.HiddenHttpMethodFilter;

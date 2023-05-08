@@ -1,8 +1,9 @@
 <html>
 <body>
-<h2>Hello Ja!</h2>
+<h1>
 <a href="/people">People</a>
 <br>
-<a href="/books">Books</a>
+<a href="/books?sort_by_year=false">Books</a>
+</h1>
 </body>
 </html>

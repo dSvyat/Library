@@ -1,18 +1,29 @@
-package project1.modules;
+package project2.models;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
+@Entity
+@Table(name="Person")
 public class Person {
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, max = 100, message = "Name should contain between 2 and 100 characters")
+    @Column(name = "full_name")
     private String fullName;
 
+    @Column(name="year_of_birth")
     private int yearOfBirth;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Book> books;
 
     public Person() {
 
@@ -45,5 +56,13 @@ public class Person {
 
     public void setYearOfBirth(int yearOfBirth) {
         this.yearOfBirth = yearOfBirth;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }
