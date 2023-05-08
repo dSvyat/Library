@@ -9,7 +9,7 @@
 <p th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getYear()}">VALUE</p>
 
 <div th:if="${owner}">
-    <span>Book now holds: </span> <span th:text="${owner.getFullName()}">Person Name</span>
+    <span>Book now possesses: </span> <span th:text="${owner.getFullName()}">Person Name</span>
 
     <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getId()})}">
         <input type="submit" value="Release book"/>

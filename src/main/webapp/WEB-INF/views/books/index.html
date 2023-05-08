@@ -13,17 +13,6 @@
 
 <br/>
 
-<!--<div th:if="${#strings.toString(param.sort_by_year)} == 'true'">
-<form th:href="@{/books(sort_by_year='false')}">
-    <input type="submit" value="Unsort"/>
-</form>
-</div>
-<div th:if="${#strings.toString(param.sort_by_year)} == 'false'">
-    <form th:href="@{/books(sort_by_year='true')}">
-        <input type="submit" value="Sort"/>
-    </form>
-</div> -->
-
 <div th:if="${#strings.toString(param.sort_by_year)} == 'true'">
     <a href="/books?sort_by_year=false">Unsort</a>
 </div>
