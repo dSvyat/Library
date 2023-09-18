@@ -1,3 +1,4 @@
+# Library
 The project aims to provide services regarding books and the user. 
 The following features have been added: 
 – User can create his own account, borrow books, search for the book he needs by genre, author, year of publication. 
